@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="UF3juny1hugo_monreal">
+  <ClassDiagramComponents>
+    <Class name="INSTITUT" package="" visibility="public" xPosition="62.0" yPosition="53.0">
+      <Fields>
+        <Field name="aules" type="ArrayList" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="AULES" package="" visibility="public" xPosition="312.0" yPosition="24.0">
+      <Fields>
+        <Field name="nomAula" type="String" visibility="private"/>
+        <Field name="capacitatMaxAlumn" type="int" visibility="private"/>
+        <Field name="aules" type="ArrayList" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="protafegirAlumne" returnType="boolean" visibility="public">
+          <Argument type="int" name="numMax"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ORDINADORS" package="" visibility="public" xPosition="647.0" yPosition="44.0">
+      <Fields>
+        <Field name="idOrdinadors" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="protafegirPc" returnType="boolean" visibility="public">
+          <Argument type="int" name="numMax"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ESTUDI" package="" visibility="public" xPosition="356.0" yPosition="273.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ALUMNES" package="" visibility="public" xPosition="363.0" yPosition="425.0">
+      <Fields>
+        <Field name="dataNeixement" type="String" visibility="private"/>
+        <Field name="codiCicle" type="int" visibility="private"/>
+        <Field name="idAlumne" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="PROFESSORS" package="" visibility="public" xPosition="731.0" yPosition="392.0">
+      <Fields>
+        <Field name="departament" type="String" visibility="private"/>
+        <Field name="carrrec" type="String" visibility="private"/>
+        <Field name="idProfessor" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="HORARI" package="" visibility="public" xPosition="101.0" yPosition="425.0">
+      <Fields>
+        <Field name="diaSetmana" type="String" visibility="private"/>
+        <Field name="horaInici" type="String" visibility="private"/>
+        <Field name="horaFi" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="PERSONA" package="" visibility="public" isAbstract="true" xPosition="297.0" yPosition="624.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="cognom" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="DEPARTAMENTS" package="" visibility="public" xPosition="745.0" yPosition="655.0">
+      <Literals>
+        <Literal name="FOL"/>
+        <Literal name="Informatica"/>
+        <Literal name="Angles"/>
+        <Literal name="Biologia"/>
+      </Literals>
+    </Enum>
+    <Enum name="CARRECS" package="" visibility="public" xPosition="531.0" yPosition="655.0">
+      <Literals>
+        <Literal name="Tutor"/>
+        <Literal name="Tutor-FCT"/>
+        <Literal name="Professor"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="pertenece" source="PROFESSORS" target="DEPARTAMENTS" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="te" source="PROFESSORS" target="CARRECS" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="te" source="INSTITUT" target="AULES" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="ocupada" source="AULES" target="ESTUDI" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="te" source="AULES" target="ORDINADORS" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="imparteix" source="ESTUDI" target="PROFESSORS" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="hores" source="ESTUDI" target="HORARI" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="estudia" source="ESTUDI" target="ALUMNES" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="ALUMNES" target="PERSONA"/>
+    <IsRelation name="is" source="PROFESSORS" target="PERSONA"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
